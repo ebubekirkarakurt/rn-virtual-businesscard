@@ -1,11 +1,11 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 
 type ListType = {
   myList: string[];
 };
 
 const initialState: ListType = {
-    myList: [],
+  myList: [],
 };
 
 export const selectList = createSlice({
@@ -18,6 +18,6 @@ export const selectList = createSlice({
   },
 });
 
-export const { addItem } = selectList.actions;
+export const {addItem} = selectList.actions;
 
 export default selectList.reducer;

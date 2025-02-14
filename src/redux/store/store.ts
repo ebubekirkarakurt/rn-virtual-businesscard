@@ -1,6 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { selectList } from '../reducer/selectList';
-
+import {configureStore} from '@reduxjs/toolkit';
+import {selectList} from '../reducer/selectList';
 
 export const store = configureStore({
   reducer: {
