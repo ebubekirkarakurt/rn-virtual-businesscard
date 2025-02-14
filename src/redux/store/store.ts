@@ -4,7 +4,7 @@ import { selectList } from '../reducer/selectList';
 
 export const store = configureStore({
   reducer: {
-    selectList: selectList,
+    selectList: selectList.reducer,
   },
 });
 
