@@ -6,10 +6,13 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
+import HomeScreen from './src/HomeScreen/HomeScreen';
 
 function App(): React.JSX.Element {
-  return <Text>First Commit..</Text>;
+  return(
+    <HomeScreen/>
+  )
 }
 
 const styles = StyleSheet.create({});
