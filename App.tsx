@@ -6,15 +6,14 @@
  */
 
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import HomeScreen from './src/HomeScreen/HomeScreen';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store/store';
 
-function App(): React.JSX.Element {
-  return(
-    <HomeScreen/>
-  )
+export default function App() {
+  return (
+    <Provider store={store}>
+      <HomeScreen/>
+    </Provider>
+  );
 }
-
-const styles = StyleSheet.create({});
-
-export default App;
