@@ -4,6 +4,7 @@ import CustomTextInput from '../../components/CustomTextInput';
 import { addItem } from '../../../redux/reducer/selectList';
 import { RootState } from '../../../redux/store/store';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
+import UserIcon from '../../../assets/svg/userIcon.svg';
 
 const GetUserInfo = () => {
   const [name, setName] = useState('');
@@ -34,10 +35,13 @@ const GetUserInfo = () => {
   return (
     <View style={styles.main}>
       <View style={styles.topContainer}>
-        <Text style={{flex: 5, margin: 20}}>Foto</Text>
+       <View style={styles.iconContainer}>
+            <UserIcon width={100} height={100} />
+       </View>
+        
         <View style={styles.topInputContainer}>
           <CustomTextInput title={'Name'} value={name} onChangeText={setName} style={styles.input} />
-          <CustomTextInput title={'Sur Name'} value={surName} onChangeText={setSurName} style={styles.input} />
+          <CustomTextInput title={'Surname'} value={surName} onChangeText={setSurName} style={styles.input} />
         </View>
       </View>
 
@@ -70,12 +74,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  topInputContainer: {
-    width: '80%',
-  },
-  input: {
-    marginBottom: 10,
-  },
+  topInputContainer: { width: '70%' },
+  input: { marginBottom: 10 },
   button:{
     backgroundColor:'#55828b',
     borderRadius: 10,
@@ -90,5 +90,6 @@ const styles = StyleSheet.create({
     color:'white',
     fontSize: 17,
     padding: 5,
-  }
+  },
+  iconContainer: {marginHorizontal: 10},
 });
