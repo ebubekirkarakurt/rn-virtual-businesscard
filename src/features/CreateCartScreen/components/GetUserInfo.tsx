@@ -1,10 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 import CustomTextInput from '../../components/CustomTextInput';
 import { addItem } from '../../../redux/reducer/selectList';
 import { RootState } from '../../../redux/store/store';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import UserIcon from '../../../assets/svg/userIcon.svg';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 const GetUserInfo = () => {
   const [name, setName] = useState('');
@@ -14,10 +15,28 @@ const GetUserInfo = () => {
   const [address, setAddress] = useState('');
   const [instagram, setInstagram] = useState('');
   const [website, setWebsite] = useState('');
+  const [selectedImage, setSelectedImage] = useState<string>('');
 
   const dispatch = useAppDispatch();
   const userCount = useAppSelector((state: RootState) => state.selectList.userCount);
-  
+
+  const selectImage = () => {
+    const options = {
+      mediaType: 'photo',
+      quality: 1,
+    };
+
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log('Kullanıcı seçimi iptal etti');
+      } else if (response.errorMessage) {
+        console.log('Hata:', response.errorMessage);
+      } else if (response.assets && response.assets.length > 0) {
+        setSelectedImage(response.assets[0].uri);
+      }
+    });
+  };
+
   const onHandlePress = () => {
     dispatch(
       addItem({
@@ -28,16 +47,23 @@ const GetUserInfo = () => {
         address,
         instagram,
         website,
+        selectedImage,
       })
     );
   };
+  console.log("SelectedImage: ", selectedImage)
 
   return (
     <View style={styles.main}>
       <View style={styles.topContainer}>
-       <View style={styles.iconContainer}>
-            <UserIcon width={100} height={100} />
-       </View>
+      <TouchableOpacity onPress={selectImage} style={styles.iconContainer}>
+            {selectedImage === '' ? (
+                <UserIcon width={100} height={100} />
+            ) : (
+                selectedImage && <Image source={{ uri: `file://${selectedImage}` }} style={styles.image} />
+            )}
+      </TouchableOpacity>
+       
         
         <View style={styles.topInputContainer}>
           <CustomTextInput title={'Name'} value={name} onChangeText={setName} style={styles.input} />
@@ -56,6 +82,7 @@ const GetUserInfo = () => {
             <Text style={styles.btnTxt} >{`Save and Create (Template ${userCount + 1})`}</Text>  
         </TouchableOpacity>  
      </View>
+     
     </View>
   );
 };
@@ -92,4 +119,10 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   iconContainer: {marginHorizontal: 10},
+  image: {
+    width: 100,
+    height: 140,
+    borderRadius: 10,
+    resizeMode: 'contain',
+  },
 });

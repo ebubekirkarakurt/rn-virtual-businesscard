@@ -9,6 +9,7 @@ type UserType = {
   address: string;
   instagram: string;
   website: string;
+  selectedImage: string;
 };
 
 type ListType = {
