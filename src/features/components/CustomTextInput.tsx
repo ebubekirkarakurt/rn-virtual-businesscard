@@ -1,11 +1,11 @@
-import { StyleProp, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleProp, StyleSheet, Text, TextInput, TextStyle, View } from 'react-native';
 import React from 'react';
 
 type Props = {
   title: string
   value: string,
   onChangeText: (text: string) => void,
-  style?: StyleProp<TextInput>,
+  style?: StyleProp<TextStyle>,
 }
 
 const CustomTextInput = ({title, value, onChangeText, style}: Props) => {
@@ -15,7 +15,7 @@ const CustomTextInput = ({title, value, onChangeText, style}: Props) => {
       <TextInput
         value={value}
         onChangeText={onChangeText}
-        style={[style, styles.input]}
+        style={[styles.input, style]}
       />
     </View>
   )
@@ -32,13 +32,14 @@ const styles = StyleSheet.create({
     display:'flex',
     left: 0,
     width:'94%',
-    color:'#212529'
+    color:'#212529',
+    marginBottom: 3
   },
   input:{
     width:'94%',
     backgroundColor: '#e5e5e5',
-    margin: 10,
-    padding: 2,
+    margin: 7,
+    padding: 10,
     borderRadius: 10,
-  }
+  },
 })
