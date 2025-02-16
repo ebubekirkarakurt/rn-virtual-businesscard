@@ -1,6 +1,6 @@
 import {Button, Text, View} from 'react-native';
 import React from 'react';
-import { useAppNavigation } from '../../navigation/useAppNavigation';
+import {useAppNavigation} from '../../navigation/useAppNavigation';
 
 type Props = {};
 

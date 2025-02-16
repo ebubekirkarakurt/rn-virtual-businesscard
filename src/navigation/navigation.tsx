@@ -26,7 +26,7 @@ export const RootNavigator = () => {
         name="CreateCartScreen"
         component={CreateCartScreen}
         options={{headerShown: true, headerTitle: 'Enter Your Informations'}}
-        />
+      />
     </RootStack.Navigator>
   );
 };

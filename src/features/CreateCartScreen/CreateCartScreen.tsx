@@ -7,7 +7,7 @@ type Props = {};
 const CreateCartScreen = (props: Props) => {
   return (
     <View>
-      <GetUserInfo/>
+      <GetUserInfo />
     </View>
   );
 };

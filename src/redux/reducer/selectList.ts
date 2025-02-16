@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 
 type UserType = {
   id: string;
@@ -26,7 +26,7 @@ export const selectList = createSlice({
   initialState,
   reducers: {
     addItem: (state, action: PayloadAction<Omit<UserType, 'id'>>) => {
-      state.userCount += 1; 
+      state.userCount += 1;
       const newUser = {
         id: `user${state.userCount}`, // user1, user2, user3
         ...action.payload,
@@ -36,5 +36,5 @@ export const selectList = createSlice({
   },
 });
 
-export const { addItem } = selectList.actions;
+export const {addItem} = selectList.actions;
 export default selectList.reducer;

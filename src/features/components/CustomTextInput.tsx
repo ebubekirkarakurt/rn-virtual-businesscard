@@ -1,45 +1,52 @@
-import { StyleProp, StyleSheet, Text, TextInput, TextStyle, View } from 'react-native';
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextInput,
+  TextStyle,
+  View,
+} from 'react-native';
 import React from 'react';
 
 type Props = {
-  title: string
-  value: string,
-  onChangeText: (text: string) => void,
-  style?: StyleProp<TextStyle>,
-}
+  title: string;
+  value: string;
+  onChangeText: (text: string) => void;
+  style?: StyleProp<TextStyle>;
+};
 
 const CustomTextInput = ({title, value, onChangeText, style}: Props) => {
   return (
     <View style={styles.main}>
-      <Text style={styles.title} >{title}</Text>
+      <Text style={styles.title}>{title}</Text>
       <TextInput
         value={value}
         onChangeText={onChangeText}
         style={[styles.input, style]}
       />
     </View>
-  )
-}
+  );
+};
 
 export default CustomTextInput;
 
 const styles = StyleSheet.create({
-  main:{
-    alignItems:'center',
+  main: {
+    alignItems: 'center',
   },
-  title:{
+  title: {
     fontSize: 17,
-    display:'flex',
+    display: 'flex',
     left: 0,
-    width:'94%',
-    color:'#212529',
-    marginBottom: 3
+    width: '94%',
+    color: '#212529',
+    marginBottom: 3,
   },
-  input:{
-    width:'94%',
+  input: {
+    width: '94%',
     backgroundColor: '#e5e5e5',
     margin: 7,
     padding: 10,
     borderRadius: 10,
   },
-})
+});

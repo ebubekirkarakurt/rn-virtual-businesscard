@@ -1,4 +1,4 @@
-const { getDefaultConfig } = require('@react-native/metro-config');
+const {getDefaultConfig} = require('@react-native/metro-config');
 
 /**
  * Metro configuration
@@ -8,7 +8,7 @@ const { getDefaultConfig } = require('@react-native/metro-config');
  */
 module.exports = (() => {
   const config = getDefaultConfig(__dirname);
-  const { transformer, resolver } = config;
+  const {transformer, resolver} = config;
 
   config.transformer = {
     ...transformer,
