@@ -6,6 +6,7 @@ import { RootState } from '../../../redux/store/store';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import UserIcon from '../../../assets/svg/userIcon.svg';
 import { launchImageLibrary } from 'react-native-image-picker';
+import { useAppNavigation } from '../../../navigation/useAppNavigation';
 
 const GetUserInfo = () => {
   const [name, setName] = useState('');
@@ -18,6 +19,7 @@ const GetUserInfo = () => {
   const [selectedImage, setSelectedImage] = useState<string>('');
 
   const dispatch = useAppDispatch();
+  const navigation = useAppNavigation();
   const userCount = useAppSelector((state: RootState) => state.selectList.userCount);
 
   const selectImage = () => {
@@ -50,8 +52,8 @@ const GetUserInfo = () => {
         selectedImage,
       })
     );
+    navigation.navigate('HomeScreen');
   };
-  console.log("SelectedImage: ", selectedImage)
 
   return (
     <View style={styles.main}>
