@@ -5,6 +5,7 @@ import { useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../redux/store/store';
 import IsListEmpty from './components/IsListEmpty';
 import MyFlashList from './components/MyFlashList';
+import AddIcon from '../../assets/svg/add.svg'
 
 const HomeScreen = () => {
   const navigation = useAppNavigation();
@@ -23,7 +24,7 @@ const HomeScreen = () => {
           <MyFlashList data={checkList.myList} />
         }
         <TouchableOpacity style={styles.btn} onPress={onHandleClick} >
-          <Text>Go Next page</Text>
+          <AddIcon width={40} height={40} />
         </TouchableOpacity>
     </View>
   );
@@ -41,6 +42,8 @@ const styles = StyleSheet.create({
     position:'absolute',
     bottom: 100,
     right: 10,
-    backgroundColor:'red',
+    backgroundColor:'#ced4da',
+    padding: 5,
+    borderRadius: 10
   },
 });
