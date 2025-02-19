@@ -18,7 +18,7 @@ export const selectList = createSlice({
     addItem: (state, action: PayloadAction<Omit<UserType, 'id'>>) => {
       state.userCount += 1;
       const newUser = {
-        id: `user${state.userCount}`, // user1, user2, user3
+        id: `${state.userCount}`, // 1, 2, 3
         ...action.payload,
       };
       state.myList.push(newUser);
