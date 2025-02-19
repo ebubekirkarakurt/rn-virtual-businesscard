@@ -6,6 +6,7 @@ import { RootState } from '../../redux/store/store';
 import IsListEmpty from './components/IsListEmpty';
 import MyFlashList from './components/MyFlashList';
 import AddIcon from '../../assets/svg/add.svg'
+import Header from '../components/Header';
 
 const HomeScreen = () => {
   const navigation = useAppNavigation();
@@ -15,7 +16,7 @@ const HomeScreen = () => {
   console.log(typeof checkList);
   return (
     <View style={styles.main} >
-        <Text>HomeScreen</Text>
+        <Header title={'Virtual Business Cart Creator'} />
         {
           checkList && checkList.myList.length == 0 
           ?
@@ -24,7 +25,7 @@ const HomeScreen = () => {
           <MyFlashList data={checkList.myList} />
         }
         <TouchableOpacity style={styles.btn} onPress={onHandleClick} >
-          <AddIcon width={40} height={40} />
+          <AddIcon width={35} height={35} />
         </TouchableOpacity>
     </View>
   );
@@ -34,16 +35,16 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   main:{
-    margin: 10,
-    height: '100%'
+    height: '100%',
   },
   btn:{
     display:'flex',
     position:'absolute',
     bottom: 100,
-    right: 10,
-    backgroundColor:'#ced4da',
+    right: 20,
+    borderColor:'#ced4da',
+    borderWidth: 2,
     padding: 5,
-    borderRadius: 10
+    borderRadius: 10,
   },
 });
