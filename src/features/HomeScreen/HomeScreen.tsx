@@ -1,4 +1,4 @@
-import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {useAppNavigation} from '../../navigation/useAppNavigation';
 import { useAppSelector } from '../../redux/hooks/hooks';
@@ -12,7 +12,7 @@ const HomeScreen = () => {
   const navigation = useAppNavigation();
 
   const checkList = useAppSelector((state:RootState) => state.selectList);
-  const onHandleClick = () => navigation.navigate('CreateCartScreen');
+  const onHandleClick = () => navigation.navigate('CreateCardScreen');
   console.log(typeof checkList);
   return (
     <View style={styles.main} >

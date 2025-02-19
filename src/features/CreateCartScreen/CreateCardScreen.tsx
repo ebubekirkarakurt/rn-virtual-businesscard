@@ -4,7 +4,7 @@ import GetUserInfo from './components/GetUserInfo';
 
 type Props = {};
 
-const CreateCartScreen = (props: Props) => {
+const CreateCardScreen = (props: Props) => {
   return (
     <View>
       <GetUserInfo />
@@ -12,6 +12,6 @@ const CreateCartScreen = (props: Props) => {
   );
 };
 
-export default CreateCartScreen;
+export default CreateCardScreen;
 
 const styles = StyleSheet.create({});

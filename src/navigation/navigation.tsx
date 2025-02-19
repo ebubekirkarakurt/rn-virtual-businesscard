@@ -2,12 +2,14 @@ import {
   NativeStackNavigationOptions,
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
-import CreateCartScreen from '../features/CreateCartScreen/CreateCartScreen';
 import HomeScreen from '../features/HomeScreen/HomeScreen';
+import CreateCardScreen from '../features/CreateCartScreen/CreateCardScreen';
+import CardDetailScreen from '../features/CardDetailScreen/CardDetailScreen';
 
 export type RootStackParamsList = {
   HomeScreen: undefined;
-  CreateCartScreen: undefined;
+  CreateCardScreen: undefined;
+  CardDetailScreen: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamsList>();
@@ -23,9 +25,14 @@ export const RootNavigator = () => {
         name="HomeScreen"
         component={HomeScreen}></RootStack.Screen>
       <RootStack.Screen
-        name="CreateCartScreen"
-        component={CreateCartScreen}
+        name="CreateCardScreen"
+        component={CreateCardScreen}
         options={{headerShown: true, headerTitle: 'Enter Your Informations'}}
+      />
+      <RootStack.Screen
+        name="CardDetailScreen"
+        component={CardDetailScreen}
+        options={{headerShown: true, headerTitle: 'Card Detail'}}
       />
     </RootStack.Navigator>
   );
