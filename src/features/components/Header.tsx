@@ -18,9 +18,9 @@ export default Header;
 const styles = StyleSheet.create({
   main:{
     borderWidth: 2,
-    borderTopColor:'none',
-    borderRightColor:'none',
-    borderLeftColor:'none',
+    borderTopColor:'white',
+    borderRightColor:'white',
+    borderLeftColor:'white',
     borderBottomColor:'#ced4da',
     padding: 10,
   },
