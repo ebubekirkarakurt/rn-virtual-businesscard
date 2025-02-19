@@ -5,11 +5,14 @@ import {
 import HomeScreen from '../features/HomeScreen/HomeScreen';
 import CreateCardScreen from '../features/CreateCartScreen/CreateCardScreen';
 import CardDetailScreen from '../features/CardDetailScreen/CardDetailScreen';
+import { UserType } from '../features/user.type';
 
 export type RootStackParamsList = {
   HomeScreen: undefined;
   CreateCardScreen: undefined;
-  CardDetailScreen: undefined;
+  CardDetailScreen: {
+    item: UserType
+  };
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamsList>();

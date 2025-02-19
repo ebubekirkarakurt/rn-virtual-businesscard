@@ -1,24 +1,33 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { FlashList } from '@shopify/flash-list';
 import { UserType } from '../../user.type';
+import { useAppNavigation } from '../../../navigation/useAppNavigation';
 
 type Props = {
     data: UserType[]
 }
 
 const MyFlashList = ({data}: Props) => {
-  console.log('data: ', data)
+  const navigation = useAppNavigation();
+
+  const onPress = (item: UserType) => navigation.navigate("CardDetailScreen", {item: item});
+
   return (
     <View style={styles.main} >
       <FlashList
         data={data}
         renderItem={({ item }) => {
           return (
-            <View style={styles.list} >
-              <Text style={styles.txt}>{item.name}</Text>
-              <Text style={styles.txt}>{item.name}</Text>
-            </View>
+           <TouchableOpacity onPress={() => onPress(item)} >
+              <View style={styles.list} >
+                <Image source={{ uri: `file://${item.selectedImage}` }} style={styles.image} />
+              <>
+                  <Text style={styles.txt}>{item.name} {item.surName}</Text>
+                  <Text style={styles.txt}>{}</Text>
+              </>
+              </View>
+           </TouchableOpacity>
           );
         }}
         estimatedItemSize={50}
@@ -36,8 +45,20 @@ const styles = StyleSheet.create({
   list: {
     margin: 10,
     padding: 10,
+    flexDirection:'row',
+    borderColor:'#ced4da',
+    borderWidth: 2,
+    borderRadius: 10,
+    alignItems:'center',
   },
   txt: {
-    fontSize:20
+    fontSize:20,
+  },
+  image: {
+    width: 90,
+    height: 120,
+    borderRadius: 10,
+    resizeMode: 'contain',
+    marginRight: 20
   },
 })

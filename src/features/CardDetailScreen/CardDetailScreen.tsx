@@ -1,12 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { RouteProp } from '@react-navigation/native';
+import { RootStackParamsList } from '../../navigation/navigation';
 
-type Props = {}
+type DetailRouteProp = RouteProp<RootStackParamsList, 'CardDetailScreen'>;
 
-const CardDetailScreen = (props: Props) => {
+type Props = {
+    route: DetailRouteProp
+}
+
+const CardDetailScreen = ({route}: Props) => {
+    const item = route.params.item;
+
   return (
     <View>
-      <Text>CardDetailScreen</Text>
+      <Text>{item.name}</Text>
     </View>
   )
 }
