@@ -49,6 +49,7 @@ const GetUserInfo = () => {
         phoneNumber,
         mail,
         departman,
+        description,
         instagram,
         linkedin,
         website,
