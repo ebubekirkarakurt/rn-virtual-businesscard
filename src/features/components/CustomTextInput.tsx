@@ -36,17 +36,16 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 17,
-    display: 'flex',
-    left: 0,
-    width: '94%',
+    alignSelf: 'flex-start',
     color: '#212529',
     marginBottom: 3,
+    paddingStart: 7,
   },
   input: {
-    width: '94%',
     backgroundColor: '#e5e5e5',
     margin: 7,
     padding: 10,
     borderRadius: 10,
   },
 });
+

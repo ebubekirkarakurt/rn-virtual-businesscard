@@ -13,8 +13,10 @@ const GetUserInfo = () => {
   const [surName, setSurName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [mail, setMail] = useState('');
-  const [address, setAddress] = useState('');
+  const [departman, setDepartman] = useState('');
+  const [description, setDescription] = useState('');
   const [instagram, setInstagram] = useState('');
+  const [linkedin, setLinkedin] = useState('');
   const [website, setWebsite] = useState('');
   const [selectedImage, setSelectedImage] = useState<string>('');
 
@@ -46,8 +48,9 @@ const GetUserInfo = () => {
         surName,
         phoneNumber,
         mail,
-        address,
+        departman,
         instagram,
+        linkedin,
         website,
         selectedImage,
       })
@@ -65,26 +68,41 @@ const GetUserInfo = () => {
                 selectedImage && <Image source={{ uri: `file://${selectedImage}` }} style={styles.image} />
             )}
       </TouchableOpacity>
-       
-        
         <View style={styles.topInputContainer}>
           <CustomTextInput title={'Name'} value={name} onChangeText={setName} style={styles.input} />
           <CustomTextInput title={'Surname'} value={surName} onChangeText={setSurName} style={styles.input} />
         </View>
       </View>
 
-      <CustomTextInput title={'Phone Number'} value={phoneNumber} onChangeText={setPhoneNumber} style={styles.input} />
-      <CustomTextInput title={'Mail Address'} value={mail} onChangeText={setMail} style={styles.input} />
-      <CustomTextInput title={'Address'} value={address} onChangeText={setAddress} style={styles.input} />
-      <CustomTextInput title={'Instagram Address'} value={instagram} onChangeText={setInstagram} style={styles.input} />
+      <View style={styles.rowContainer}>
+        <View style={styles.centeredFlex}>
+          <CustomTextInput title={'Phone Number'} value={phoneNumber} onChangeText={setPhoneNumber} style={styles.input} />
+        </View>
+        <View style={styles.centeredFlex}>
+          <CustomTextInput title={'Mail Address'} value={mail} onChangeText={setMail} style={styles.input} />
+        </View>
+      </View>
+
+      <CustomTextInput title={'Description'} value={description} onChangeText={setDescription} style={styles.input} />
+      <CustomTextInput title={'Departman'} value={departman} onChangeText={setDepartman} style={styles.input} />
+
+      <View style={styles.rowContainer}>
+        <View style={styles.centeredFlex} >
+          <CustomTextInput title={'Instagram'} value={instagram} onChangeText={setInstagram} style={styles.input}/>
+        </View>
+        <View style={styles.centeredFlex}>
+          <CustomTextInput title={'Linkedin'} value={linkedin} onChangeText={setLinkedin} style={styles.input} />
+        </View>
+      </View>
+
+
       <CustomTextInput title={'Website Address'} value={website} onChangeText={setWebsite} style={styles.input} />
 
      <View style={{alignItems:'center'}} >
         <TouchableOpacity style={styles.button} onPress={onHandlePress} >
-            <Text style={styles.btnTxt} >{`Save and Create (Template ${userCount + 1})`}</Text>  
-        </TouchableOpacity>  
+            <Text style={styles.btnTxt} >{`Save and Create (Template ${userCount + 1})`}</Text>
+        </TouchableOpacity>
      </View>
-     
     </View>
   );
 };
@@ -104,7 +122,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   topInputContainer: { width: '70%' },
-  input: { marginBottom: 10 },
+  input: { marginBottom: 10, width:'96%',},
+  rowContainer:{flexDirection: 'row', width: '100%', gap: 10},
   button:{
     backgroundColor:'#55828b',
     borderRadius: 10,
@@ -126,5 +145,8 @@ const styles = StyleSheet.create({
     height: 140,
     borderRadius: 10,
     resizeMode: 'contain',
+  },
+  centeredFlex:{
+    flex:0.5,
   },
 });

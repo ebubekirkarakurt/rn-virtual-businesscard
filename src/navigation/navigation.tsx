@@ -5,7 +5,7 @@ import {
 import HomeScreen from '../features/HomeScreen/HomeScreen';
 import CreateCardScreen from '../features/CreateCartScreen/CreateCardScreen';
 import CardDetailScreen from '../features/CardDetailScreen/CardDetailScreen';
-import { UserType } from '../features/user.type';
+import { UserType } from '../features/user';
 
 export type RootStackParamsList = {
   HomeScreen: undefined;
@@ -35,7 +35,7 @@ export const RootNavigator = () => {
       <RootStack.Screen
         name="CardDetailScreen"
         component={CardDetailScreen}
-        options={{headerShown: true, headerTitle: 'Card Detail'}}
+        options={{headerShown: false,}}
       />
     </RootStack.Navigator>
   );
