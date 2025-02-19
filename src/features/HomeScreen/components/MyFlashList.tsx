@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { FlashList } from '@shopify/flash-list';
-import { UserType } from '../../user.type';
+import { UserType } from '../../user';
 import { useAppNavigation } from '../../../navigation/useAppNavigation';
 
 type Props = {
@@ -59,6 +59,6 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 10,
     resizeMode: 'contain',
-    marginRight: 20
+    marginRight: 20,
   },
 })
