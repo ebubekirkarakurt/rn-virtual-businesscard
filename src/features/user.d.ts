@@ -4,9 +4,9 @@ export type UserType = {
     surName: string;
     phoneNumber: string;
     mail: string;
-    address: string;
+    departman: string;
     instagram: string;
+    linkedin: string;
     website: string;
     selectedImage: string;
 };
-  
