@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -8,9 +8,9 @@ type CustomIconProps = {
   color: string;
 };
 
-const CustomIcon = ({ name, size, color }: CustomIconProps) => {
+const CustomIcon = ({name, size, color}: CustomIconProps) => {
   return (
-    <View style={styles.main} >
+    <View style={styles.main}>
       <Icon name={name} size={size} color={color}></Icon>
     </View>
   );
@@ -19,9 +19,9 @@ const CustomIcon = ({ name, size, color }: CustomIconProps) => {
 export default CustomIcon;
 
 const styles = StyleSheet.create({
-    main:{
-      padding:5,
-      backgroundColor:'#84a98c',
-      borderRadius: 100,
-    }
-});  
+  main: {
+    padding: 5,
+    backgroundColor: '#84a98c',
+    borderRadius: 100,
+  },
+});

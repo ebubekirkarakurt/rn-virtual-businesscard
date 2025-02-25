@@ -1,5 +1,5 @@
 import {PayloadAction, createSlice} from '@reduxjs/toolkit';
-import { UserType } from '../../features/user';
+import {UserType} from '../../features/user';
 
 type ListType = {
   myList: UserType[];

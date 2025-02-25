@@ -2,13 +2,13 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 type Props = {
-  title: string,
+  title: string;
 };
 
 const Header = ({title}: Props) => {
   return (
-    <View style={styles.main} >
-      <Text style={styles.txt} >{title}</Text>
+    <View style={styles.main}>
+      <Text style={styles.txt}>{title}</Text>
     </View>
   );
 };
@@ -16,15 +16,15 @@ const Header = ({title}: Props) => {
 export default Header;
 
 const styles = StyleSheet.create({
-  main:{
+  main: {
     borderWidth: 2,
-    borderTopColor:'white',
-    borderRightColor:'white',
-    borderLeftColor:'white',
-    borderBottomColor:'#ced4da',
+    borderTopColor: 'white',
+    borderRightColor: 'white',
+    borderLeftColor: 'white',
+    borderBottomColor: '#ced4da',
     padding: 10,
   },
-  txt:{
+  txt: {
     fontSize: 19,
     fontWeight: '700',
     letterSpacing: 2,

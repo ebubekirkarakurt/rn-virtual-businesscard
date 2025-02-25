@@ -6,7 +6,7 @@ type Props = {};
 
 const CreateCardScreen = (props: Props) => {
   return (
-    <View style={{backgroundColor:'white'}} >
+    <View style={{backgroundColor: 'white'}}>
       <GetUserInfo />
     </View>
   );

@@ -1,58 +1,64 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import { FlashList } from '@shopify/flash-list';
-import { UserType } from '../../user';
-import { useAppNavigation } from '../../../navigation/useAppNavigation';
+import {FlashList} from '@shopify/flash-list';
+import {UserType} from '../../user';
+import {useAppNavigation} from '../../../navigation/useAppNavigation';
 
 type Props = {
-    data: UserType[]
-}
+  data: UserType[];
+};
 
 const MyFlashList = ({data}: Props) => {
   const navigation = useAppNavigation();
 
-  const onPress = (item: UserType) => navigation.navigate("CardDetailScreen", {item: item});
+  const onPress = (item: UserType) =>
+    navigation.navigate('CardDetailScreen', {item: item});
 
   return (
-    <View style={styles.main} >
+    <View style={styles.main}>
       <FlashList
         data={data}
-        renderItem={({ item }) => {
+        renderItem={({item}) => {
           return (
-           <TouchableOpacity onPress={() => onPress(item)} >
-              <View style={styles.list} >
-                <Image source={{ uri: `file://${item.selectedImage}` }} style={styles.image} />
-              <>
-                  <Text style={styles.txt}>{item.name} {item.surName}</Text>
+            <TouchableOpacity onPress={() => onPress(item)}>
+              <View style={styles.list}>
+                <Image
+                  source={{uri: `file://${item.selectedImage}`}}
+                  style={styles.image}
+                />
+                <>
+                  <Text style={styles.txt}>
+                    {item.name} {item.surName}
+                  </Text>
                   <Text style={styles.txt}>{}</Text>
-              </>
+                </>
               </View>
-           </TouchableOpacity>
+            </TouchableOpacity>
           );
         }}
         estimatedItemSize={50}
       />
     </View>
-  )
-}
+  );
+};
 
 export default MyFlashList;
 
 const styles = StyleSheet.create({
-  main:{
-    height:'100%',
+  main: {
+    height: '100%',
   },
   list: {
     margin: 10,
     padding: 5,
-    flexDirection:'row',
-    borderColor:'#ced4da',
+    flexDirection: 'row',
+    borderColor: '#ced4da',
     borderWidth: 1,
     borderRadius: 10,
-    alignItems:'center',
+    alignItems: 'center',
   },
   txt: {
-    fontSize:20,
+    fontSize: 20,
     marginLeft: 20,
   },
   image: {
@@ -60,6 +66,6 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 10,
     resizeMode: 'contain',
-    marginLeft: 10
+    marginLeft: 10,
   },
-})
+});
