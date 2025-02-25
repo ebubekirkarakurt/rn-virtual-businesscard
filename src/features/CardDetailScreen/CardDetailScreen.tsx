@@ -1,10 +1,11 @@
-import { Image, Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Linking, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamsList } from '../../navigation/navigation';
-import CustomIcon from '../components/CustomIcon';
 import Label from './components/Label';
 import ConnectMe from './components/ConnectMe';
+import QRCode from 'react-native-qrcode-svg';
+import UserIcon from '../../assets/svg/userIcon.svg';
 
 type DetailRouteProp = RouteProp<RootStackParamsList, 'CardDetailScreen'>;
 
@@ -14,7 +15,7 @@ type Props = {
 
 const CardDetailScreen = ({route}: Props) => {
   const item = route.params.item;
-
+  console.log(item.selectedImage)
   const openLink = (url: string) => {
       Linking.openURL(url).catch((err) => console.error("URL couldnt open:", err));
   };
@@ -30,20 +31,28 @@ const CardDetailScreen = ({route}: Props) => {
   return (
     <View style={styles.main}>
       <View style={styles.topContainer} >
-        <Image source={{ uri: `file://${item.selectedImage}` }} style={styles.image} />
-        <View style={styles.nameContainer} >
+        {item.selectedImage === '' ? (
+                        <UserIcon width={150} height={150} style={styles.image} />
+                    ) : (
+                        item.selectedImage && <Image source={{ uri: `file://${item.selectedImage}` }} style={styles.image} />
+                    )
+        }
+      </View>
+      <View style={styles.nameContainer} >
           <Text style={styles.txt} >{item.name} {item.surName}</Text>
           <Text style={styles.departmentTxt} >{item.departman}</Text>
           <Text style={styles.descriptionTxt} >{item.description}</Text>
         </View>
-      </View>
-      <View>
+      <View style={styles.label} >
         <Label iconName={'phone'} onPress={() => makeCall(item.phoneNumber)} txt={item.phoneNumber} />
         <Label iconName={'email-box'} onPress={() => sendEmail(item.mail)} txt={item.mail} />
         <Label iconName={'earth'} onPress={() => openLink(item.website)} txt={item.website} />
       </View>
-      <View>
-        <Text>Hey qr</Text>
+      <View style={styles.qrContainer} >
+          <QRCode
+            value={item.website}
+            size={200}
+          />
       </View>
       <View style={{ alignItems:'center', justifyContent:'center',}} >
         <Text style={styles.descriptionTxt} >Connect with me on</Text>
@@ -81,6 +90,7 @@ const styles = StyleSheet.create({
         left: 120,
         borderColor:'#84a98c',
         borderWidth: 1.5,
+        backgroundColor:'white',
     },
     txt:{
         textAlign:'center',
@@ -94,19 +104,28 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color:'#415a77',
         fontWeight: '500',
+
     },
     nameContainer:{ top: 40 },
-
     descriptionTxt: {
         textAlign:'center',
         fontSize: 18,
         color:'#778da9',
         fontWeight: '500',
-        paddingTop: 20,
+        paddingTop: 10,
+        paddingStart: 10,
+        paddingEnd: 10,
     },
     row:{
       flexDirection:'row',
       padding: 10,
       alignItems:'center',
+  },
+  qrContainer:{
+    alignItems:'center',
+    top: 0,
+  },
+  label:{
+    top: 20,    
   },
 });
