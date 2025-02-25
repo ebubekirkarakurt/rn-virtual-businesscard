@@ -36,6 +36,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   main:{
     height: '100%',
+    backgroundColor:'white',
   },
   btn:{
     display:'flex',

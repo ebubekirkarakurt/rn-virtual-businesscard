@@ -23,6 +23,8 @@ const CustomTextInput = ({title, value, onChangeText, style}: Props) => {
         value={value}
         onChangeText={onChangeText}
         style={[styles.input, style]}
+        multiline={false}
+        numberOfLines={1}
       />
     </View>
   );
@@ -46,6 +48,7 @@ const styles = StyleSheet.create({
     margin: 7,
     padding: 10,
     borderRadius: 10,
+    color: '#000000',
   },
 });
 

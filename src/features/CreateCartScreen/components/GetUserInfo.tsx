@@ -113,8 +113,9 @@ export default GetUserInfo;
 const styles = StyleSheet.create({
   main: {
     margin: 10,
-    height:'97%',
+    height:'100%',
     marginTop: 20,
+    backgroundColor:'white',
   },
   topContainer: {
     padding: 10,

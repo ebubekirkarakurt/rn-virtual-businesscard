@@ -44,21 +44,22 @@ const styles = StyleSheet.create({
   },
   list: {
     margin: 10,
-    padding: 10,
+    padding: 5,
     flexDirection:'row',
     borderColor:'#ced4da',
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
     alignItems:'center',
   },
   txt: {
     fontSize:20,
+    marginLeft: 20,
   },
   image: {
     width: 90,
     height: 120,
     borderRadius: 10,
     resizeMode: 'contain',
-    marginRight: 20,
+    marginLeft: 10
   },
 })

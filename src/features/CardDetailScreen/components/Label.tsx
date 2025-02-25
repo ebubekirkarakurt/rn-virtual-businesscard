@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
         width:'100%',
         marginStart:20,
         marginEnd: 20,
-        top: 60,
       },
       row:{
         flexDirection:'row',
